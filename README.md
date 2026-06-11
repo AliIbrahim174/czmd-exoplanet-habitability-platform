@@ -158,28 +158,6 @@ npm start
 
 ---
 
-## Screenshots
-
-Add screenshots here after uploading them to the repository.
-
-Recommended screenshots:
-
-```text
-assets/screenshots/home-page.png
-assets/screenshots/search-results.png
-assets/screenshots/exoplanet-visualization.png
-assets/screenshots/habitability-report.png
-```
-
-Example Markdown after adding screenshots:
-
-```md
-![Home Page](assets/screenshots/home-page.png)
-![Habitability Report](assets/screenshots/habitability-report.png)
-```
-
----
-
 ## Contributors
 
 - [Ahmed Ellaban](https://www.linkedin.com/in/ahmed-samy-ellaban/)
