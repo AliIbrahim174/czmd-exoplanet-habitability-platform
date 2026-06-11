@@ -1,143 +1,221 @@
-# Exoplanet Detection and Habitability Assessment System
+# CZMD — Exoplanet Habitability Assessment Platform
 
-## Project Overview
+A NASA Space Apps Challenge project that helps users explore exoplanet data and evaluate potential habitability using scientific conditions and data from the **NASA Exoplanet Archive**.
 
-This project is designed to help researchers and users analyze and assess the habitability of exoplanets. It processes data from NASA's Exoplanet Archive to evaluate various conditions of planets in different star systems. The project performs habitability checks by calculating parameters like planetary radius, mass, temperature, and proximity to the habitable zone, among other factors. It also fetches real-time data from NASA’s archive and updates the database daily using AWS Lambda functions to keep the information current.
-
-### Key Features:
-- Real-time data fetching from NASA’s Exoplanet Archive.
-- Daily updates to the exoplanet database using AWS Lambda.
-- Habitability analysis of exoplanets based on various conditions.
-- Simple API for retrieving data based on planet names or criteria.
-- Hosted on Vercel using Serverless Functions.
-
-## How It Works
-
-1. **Daily Data Update**: 
-   The project uses an AWS Lambda function that fetches the latest data from NASA’s Exoplanet Archive daily. This ensures that the information on exoplanets in the database is always up-to-date.
-
-2. **Data Processing & Habitability Checks**: 
-   The system evaluates various conditions, including:
-   - **Magnetic Field Potential**: Evaluates the planet’s mass and radius to determine if it has a likely magnetic field.
-   - **Habitable Zone Check**: Verifies whether the planet is within a certain distance from its star to allow liquid water (0.95 AU to 1.67 AU).
-   - **Planet Radius**: Checks if the radius is within a suitable range for habitability (0.5 to 1.5 Earth radii).
-   - **Planet Mass**: Verifies whether the planet’s mass is within a suitable range (0.5 to 5.0 Earth masses).
-   - **Planet Temperature**: Ensures the planet’s temperature is between 200K and 350K (Kelvin) for potential habitability.
-
-3. **Exoplanet Separation Calculation**: 
-   The project also calculates the likelihood of detecting and separating the planet from its star, using a value called **SNR** (Signal-to-Noise Ratio).
-
-4. **API for Data Retrieval**: 
-   The system provides endpoints for users to search for exoplanets by name or retrieve all exoplanets from the database.
-
-
-### 🌐 Our Team Page on NASA Space Apps:
-#### https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/czmd/
-
-### 🚀 Our Website (MVP developed in less than 48 working hours):
-#### https://nasa-space-apps2024-czmd.vercel.app/
-
-### 💻 GitHub Repository:
-#### https://github.com/basel-sh/nasa-space-apps2024-czmd
-
-### 🎥 Project Explanation Video:
-#### https://drive.google.com/file/d/1y9-xK2YMi6njxh7IWc9zcVv6nnGlr8pn/view
-
-
-
-## Tools and Technologies
-
-### Backend (Python):
-- **AWS Lambda**: Used for daily updates of the exoplanet database.
-- **Pandas**: For processing and managing large data sets from the NASA Exoplanet Archive.
-- **SQLAlchemy**: For interacting with the MySQL database.
-- **MySQL Database**: Hosted on Aiven (Free Plan) to store exoplanet data.
-
-### Frontend (JavaScript):
-- **React.js**: Used to build the user interface.
-- **THREE.js**: For rendering 3D visualizations of star systems and exoplanets.
-
-### Hosting and Infrastructure:
-- **Vercel**: Hosting the frontend and backend (serverless functions) for free.
-- **Serverless Functions (AWS Lambda)**: Handling API requests and database updates.
-- **MySQL (Aiven)**: Storing exoplanet data for quick retrieval.
-
-## Installation & Setup
-
-### Requirements:
-- Python 3.8+
-- MySQL Database
-- AWS Account (For Lambda functions)
-- React.js (for frontend)
-- Node.js (for serverless functions)
-
-### Steps:
-
-1. **Clone the Repository**:
-   ```
-   git clone https://github.com/your-repo/exoplanet-detection.git
-   cd exoplanet-detection
-   ```
-
-2. **Backend Setup**:
-   - Install Python dependencies:
-     ```bash
-     pip install pandas sqlalchemy pymysql requests
-     ```
-   - Configure your MySQL database in the `database_config.py` file.
-   - Deploy the AWS Lambda function for daily updates (instructions in the `lambda_setup.md` file).
-
-3. **Frontend Setup**:
-   - Install Node.js dependencies:
-     ```bash
-     npm install
-     ```
-   - Start the development server:
-     ```bash
-     npm start
-     ```
-
-5. **Daily Updates**:
-   - Set up the AWS Lambda function to run daily for automatic updates of the exoplanet database.
-
-## Conditions Evaluated
-
-1. **Magnetic Field Potential**: Evaluates if a planet has the right mass and radius to potentially generate a magnetic field.
-2. **Habitable Zone**: Checks if the planet is located in a region where liquid water could exist.
-3. **Suitable Radius**: Ensures the planet has a radius suitable for habitability.
-4. **Suitable Mass**: Verifies if the planet’s mass is within a suitable range for habitability.
-5. **Suitable Temperature**: Confirms if the planet’s surface temperature could support life.
-6. **SNR (Signal-to-Noise Ratio)**: Calculates the likelihood of detecting the planet.
-7. **Planet Separation**: Determines if the planet can be separated from the star in images based on its distance and the telescope’s capabilities.
-
-## Benefits
-
-- **Real-time Data**: Always up-to-date exoplanet data fetched from NASA's archive.
-- **Simple UI**: Users can search for exoplanets and visualize their data through an interactive 3D interface.
-- **Detailed Habitability Analysis**: The system evaluates planets based on scientific criteria, helping researchers and space enthusiasts.
-
-## Future Enhancements
-
-- **Atmospheric Data**: Integration with external APIs to assess planetary atmospheres.
-- **Enhanced Visualizations**: Further improvements to 3D visualization using THREE.js.
-- **Machine Learning**: Implement machine learning models to predict habitability based on historical data trends.
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
+The platform was developed as an MVP in less than 48 hours and won **1st Place at the NASA Space Apps Challenge — Port Said Branch**, later becoming a **2024 Global Nominee**.
 
 ---
 
-### **Contributors:**
+## Overview
+
+CZMD is a web-based exoplanet analysis platform designed to help users search, visualize, and assess planets outside our solar system.
+
+The system processes exoplanet data from NASA’s Exoplanet Archive and evaluates habitability-related conditions such as radius, mass, temperature, habitable-zone position, magnetic-field potential, and detectability.
+
+The goal of the project was to combine **space science**, **data processing**, **web development**, and **scientific visualization** into an accessible interactive platform.
+
+---
+
+## Awards
+
+- **1st Place** — NASA Space Apps Challenge, Port Said Branch
+- **2024 Global Nominee**
+- Built as an MVP in less than 48 hours during the competition
+
+---
+
+## My Role
+
+I worked as the **team leader**, and contributed to both the technical and product-development sides of the project.
+
+My responsibilities included:
+
+- Leading a 6-member team during the competition
+- Contributing to the front-end and back-end implementation
+- Building the AI/data processing component
+- Working with NASA Exoplanet Archive data
+- Supporting the integration between the data layer, web interface, and user-facing results
+- Helping prepare the project presentation and competition submission
+
+---
+
+## Key Features
+
+- Exoplanet search and exploration
+- Habitability assessment based on scientific criteria
+- Real-time or frequently updated exoplanet data pipeline
+- Interactive web interface
+- 3D visualization of star systems and exoplanets
+- API-based data retrieval
+- Hosted MVP deployment
+- Competition-ready project documentation and presentation
+
+---
+
+## Habitability Conditions Evaluated
+
+The system evaluates planets using several scientific indicators:
+
+1. **Habitable Zone Position**  
+   Checks whether a planet is located in a region where liquid water could potentially exist.
+
+2. **Planet Radius**  
+   Evaluates whether the planet radius is within a suitable range for potential habitability.
+
+3. **Planet Mass**  
+   Assesses whether the planet mass is within an acceptable range.
+
+4. **Planet Temperature**  
+   Checks if the estimated temperature falls within a potentially habitable range.
+
+5. **Magnetic Field Potential**  
+   Uses mass and radius indicators to estimate whether the planet may have magnetic-field potential.
+
+6. **Signal-to-Noise Ratio / Detectability**  
+   Estimates whether a planet can be detected or separated from its host star under observation constraints.
+
+---
+
+## Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| Data Processing | Python, Pandas |
+| Machine Learning / Analysis | Scikit-learn, NumPy |
+| Database | MySQL, SQLAlchemy |
+| Backend / Serverless | Python, AWS Lambda, Serverless Functions |
+| Frontend | React.js, JavaScript |
+| 3D Visualization | THREE.js |
+| Hosting | Vercel |
+| Data Source | NASA Exoplanet Archive |
+
+---
+
+## System Workflow
+
+```text
+NASA Exoplanet Archive
+        ↓
+Data Fetching / Update Pipeline
+        ↓
+Data Processing and Cleaning
+        ↓
+Habitability Condition Checks
+        ↓
+Database Storage
+        ↓
+API / Serverless Functions
+        ↓
+Interactive Web Interface
+        ↓
+User Search, Results, and Visualization
+```
+
+---
+
+## Project Links
+
+- Team Page: https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/czmd/
+- MVP Website: https://nasa-space-apps2024-czmd.vercel.app/
+- Explanation Video: https://drive.google.com/file/d/1y9-xK2YMi6njxh7IWc9zcVv6nnGlr8pn/view
+
+---
+
+## Installation and Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/AliIbrahim174/czmd-exoplanet-habitability-platform.git
+cd czmd-exoplanet-habitability-platform
+```
+
+### 2. Backend setup
+
+Install Python dependencies:
+
+```bash
+pip install pandas sqlalchemy pymysql requests scikit-learn numpy
+```
+
+Configure the database connection according to your local or hosted MySQL setup.
+
+### 3. Frontend setup
+
+Install Node.js dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
+```
+
+> Note: The exact run command may differ depending on the final frontend structure and deployment setup.
+
+---
+
+## Screenshots
+
+Add screenshots here after uploading them to the repository.
+
+Recommended screenshots:
+
+```text
+assets/screenshots/home-page.png
+assets/screenshots/search-results.png
+assets/screenshots/exoplanet-visualization.png
+assets/screenshots/habitability-report.png
+```
+
+Example Markdown after adding screenshots:
+
+```md
+![Home Page](assets/screenshots/home-page.png)
+![Habitability Report](assets/screenshots/habitability-report.png)
+```
+
+---
+
+## Contributors
+
 - [Ahmed Ellaban](https://www.linkedin.com/in/ahmed-samy-ellaban/)
 - [Basel Shreif](https://www.linkedin.com/in/basel-shrief/)
-- [Ali Khedr](https://www.linkedin.com/in/ali-khedr-773087205/)
+- [Ali Mahmoud Ahmed Ibrahim](https://www.linkedin.com/in/ali-mahmoud-ibrahim/)
 - [Nour Wael](https://www.linkedin.com/in/nour-wael-3b359a2b3/)
 - [Aya Mohamed](https://www.linkedin.com/in/aya-mohamed-samir-5780a9267)
 - [Farah Elhebeishy](https://www.linkedin.com/in/farah-elhebeishy-46146632a/)
 
+---
 
+## What I Learned
 
-### **وَسَلَامٌ عَلَى الْمُرْسَلِينَ وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ** 
-### **Peace be upon the messengers, and all praise is due to Allah, the Lord of the worlds.**
+This project strengthened my experience in:
 
+- Leading a technical team under time pressure
+- Working with scientific datasets
+- Turning raw data into user-facing insights
+- Integrating data processing with web interfaces
+- Building an MVP under competition constraints
+- Communicating technical work clearly for judges and users
+
+---
+
+## Future Improvements
+
+- Improve scientific validation of habitability scoring
+- Add more exoplanet parameters and atmospheric indicators
+- Improve 3D visualization and comparison tools
+- Add user-friendly filtering and ranking
+- Improve deployment documentation
+- Add automated tests for data-processing functions
+- Add clearer API documentation
+
+---
+
+## License
+
+This project is open-source and available under the MIT License.
